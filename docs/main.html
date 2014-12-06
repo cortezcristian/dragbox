@@ -19,8 +19,53 @@
           <div id="jump_page">
             
               
+              <a class="source" href="action.html">
+                action.js
+              </a>
+            
+              
               <a class="source" href="admins.html">
                 admins.js
+              </a>
+            
+              
+              <a class="source" href="challenge.html">
+                challenge.js
+              </a>
+            
+              
+              <a class="source" href="logaction.html">
+                logaction.js
+              </a>
+            
+              
+              <a class="source" href="logchallenge.html">
+                logchallenge.js
+              </a>
+            
+              
+              <a class="source" href="logreward.html">
+                logreward.js
+              </a>
+            
+              
+              <a class="source" href="notification.html">
+                notification.js
+              </a>
+            
+              
+              <a class="source" href="notificationtemplate.html">
+                notificationtemplate.js
+              </a>
+            
+              
+              <a class="source" href="reward.html">
+                reward.js
+              </a>
+            
+              
+              <a class="source" href="rule.html">
+                rule.js
               </a>
             
               
@@ -49,6 +94,46 @@
               </a>
             
               
+              <a class="source" href="actions-rest-tests.html">
+                actions-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="challenges-rest-tests.html">
+                challenges-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="logactions-rest-tests.html">
+                logactions-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="logrewards-rest-tests.html">
+                logrewards-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="notifications-rest-tests.html">
+                notifications-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="notificationtemplates-rest-tests.html">
+                notificationtemplates-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="rewards-rest-tests.html">
+                rewards-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="rules-rest-tests.html">
+                rules-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="samples-rest-tests.html">
                 samples-rest-tests.js
               </a>
@@ -59,8 +144,53 @@
               </a>
             
               
+              <a class="source" href="action-tests.html">
+                action-tests.js
+              </a>
+            
+              
               <a class="source" href="admins-tests.html">
                 admins-tests.js
+              </a>
+            
+              
+              <a class="source" href="challenge-tests.html">
+                challenge-tests.js
+              </a>
+            
+              
+              <a class="source" href="logaction-tests.html">
+                logaction-tests.js
+              </a>
+            
+              
+              <a class="source" href="logchallenge-tests.html">
+                logchallenge-tests.js
+              </a>
+            
+              
+              <a class="source" href="logreward-tests.html">
+                logreward-tests.js
+              </a>
+            
+              
+              <a class="source" href="notification-tests.html">
+                notification-tests.js
+              </a>
+            
+              
+              <a class="source" href="notificationtemplate-tests.html">
+                notificationtemplate-tests.js
+              </a>
+            
+              
+              <a class="source" href="reward-tests.html">
+                reward-tests.js
+              </a>
+            
+              
+              <a class="source" href="rule-tests.html">
+                rule-tests.js
               </a>
             
               
@@ -143,6 +273,15 @@
             
             <div class="content"><div class='highlight'><pre>  Sample  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/sample.js'</span>),
   Admins  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/admins.js'</span>),
+  Challenge  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/challenge.js'</span>),
+  Rule  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/rule.js'</span>),
+  Action  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/action.js'</span>),
+  Reward  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/reward.js'</span>),
+  Notification  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/notification.js'</span>),
+  NotificationTemplate  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/notificationtemplate.js'</span>),
+  LogAction  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/logaction.js'</span>),
+  LogReward  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/logreward.js'</span>),
+  LogChallenge  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/logchallenge.js'</span>),
   <span class="hljs-comment">/* models:end */</span></pre></div></div>
             
         </li>
@@ -189,6 +328,15 @@ according to their roles</p>
 
   <span class="hljs-comment">/* models:registration:start */</span>
   anyandgo.models[<span class="hljs-string">'sample'</span>]  = Sample;
+  anyandgo.models[<span class="hljs-string">'challenge'</span>]  = Challenge;
+  anyandgo.models[<span class="hljs-string">'rule'</span>]  = Rule;
+  anyandgo.models[<span class="hljs-string">'action'</span>]  = Action;
+  anyandgo.models[<span class="hljs-string">'reward'</span>]  = Reward;
+  anyandgo.models[<span class="hljs-string">'notification'</span>]  = Notification;
+  anyandgo.models[<span class="hljs-string">'notificationtemplate'</span>]  = NotificationTemplate;
+  anyandgo.models[<span class="hljs-string">'logaction'</span>]  = LogAction;
+  anyandgo.models[<span class="hljs-string">'logreward'</span>]  = LogReward;
+  anyandgo.models[<span class="hljs-string">'logchallenge'</span>]  = LogChallenge;
   <span class="hljs-comment">/* models:registration:end */</span></pre></div></div>
             
         </li>
@@ -438,8 +586,7 @@ according to their roles</p>
   postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
   }
-});
-<span class="hljs-comment">/* rest:public:end */</span></pre></div></div>
+});</pre></div></div>
             
         </li>
         
@@ -450,10 +597,25 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <h2 id="4-crud-forms">4. Crud Forms</h2>
-<hr>
+              <p>GET /api/v1/challenges</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Challenge, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
             
         </li>
         
@@ -464,11 +626,25 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
-              <p><a href="https://github.com/oJshua/mongoose-forms">https://github.com/oJshua/mongoose-forms</a></p>
+              <p>GET /api/v1/rules</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/:modelname/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Rule, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
             
         </li>
         
@@ -478,6 +654,239 @@ according to their roles</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>GET /api/v1/actions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Action, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>GET /api/v1/rewards</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Reward, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>GET /api/v1/notifications</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Notification, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>GET /api/v1/notificationtemplates</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, NotificationTemplate, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>GET /api/v1/logactions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, LogAction, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>GET /api/v1/logrewards</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, LogReward, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>GET /api/v1/logchallenges</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, LogChallenge, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});
+<span class="hljs-comment">/* rest:public:end */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <h2 id="4-crud-forms">4. Crud Forms</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p><a href="https://github.com/oJshua/mongoose-forms">https://github.com/oJshua/mongoose-forms</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/:modelname/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p>mongooseForms.bindHelpers(Handlebars, ‘bootstrap’);</p>
 
@@ -498,11 +907,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p>delete SampleForm.options.fields[“<strong>v”];
 SampleForm.options.maps[“</strong>v”] = false;</p>
@@ -530,11 +939,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-34">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
               <p>Override type with ngoform setting</p>
 
@@ -552,11 +961,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-26">
+        <li id="section-35">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
               <p>form.options.fields[“name”].template = ‘Lala’;</p>
 
@@ -584,11 +993,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-27">
+        <li id="section-36">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
               <p>var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();</p>
 
@@ -615,11 +1024,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-28">
+        <li id="section-37">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -629,11 +1038,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-29">
+        <li id="section-38">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-29">&#182;</a>
+                <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
               
             </div>
@@ -651,11 +1060,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-30">
+        <li id="section-39">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-30">&#182;</a>
+                <a class="pilcrow" href="#section-39">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 

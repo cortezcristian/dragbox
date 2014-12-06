@@ -16,6 +16,15 @@ var app = module.parent.exports.app,
   // Admins        = require('../models/admins.js'),
   Sample  = require('../models/sample.js'),
   Admins  = require('../models/admins.js'),
+  Challenge  = require('../models/challenge.js'),
+  Rule  = require('../models/rule.js'),
+  Action  = require('../models/action.js'),
+  Reward  = require('../models/reward.js'),
+  Notification  = require('../models/notification.js'),
+  NotificationTemplate  = require('../models/notificationtemplate.js'),
+  LogAction  = require('../models/logaction.js'),
+  LogReward  = require('../models/logreward.js'),
+  LogChallenge  = require('../models/logchallenge.js'),
   /* models:end */
   // ### Authorizers
   // Mantain certains part from the application secure
@@ -36,7 +45,25 @@ var app = module.parent.exports.app,
 
   /* models:registration:start */
   anyandgo.models['sample']  = Sample;
+  anyandgo.models['challenge']  = Challenge;
+  anyandgo.models['rule']  = Rule;
+  anyandgo.models['action']  = Action;
+  anyandgo.models['reward']  = Reward;
+  anyandgo.models['notification']  = Notification;
+  anyandgo.models['notificationtemplate']  = NotificationTemplate;
+  anyandgo.models['logaction']  = LogAction;
+  anyandgo.models['logreward']  = LogReward;
+  anyandgo.models['logchallenge']  = LogChallenge;
   /* models:registration:end */
+
+
+
+
+
+
+
+
+
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -120,7 +147,169 @@ restify.serve(app, Sample, {
     console.log("post process");
   }
 });
+
+// GET /api/v1/challenges
+restify.serve(app, Challenge, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/rules
+restify.serve(app, Rule, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/actions
+restify.serve(app, Action, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/rewards
+restify.serve(app, Reward, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/notifications
+restify.serve(app, Notification, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/notificationtemplates
+restify.serve(app, NotificationTemplate, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/logactions
+restify.serve(app, LogAction, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/logrewards
+restify.serve(app, LogReward, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
+
+// GET /api/v1/logchallenges
+restify.serve(app, LogChallenge, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
 /* rest:public:end */
+
+
+
+
+
+
+
+
+
 
 
 // ## 4. Crud Forms
