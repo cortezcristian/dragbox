@@ -8,8 +8,14 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ruleSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name        : String,
+    desc        : String,
+    challengeId : Number,
+    actionId    : Number,
+    times       : Number,
+    condition   : String,
+    tag         : String,
+	created     : Date
 });
 
 // ### Hooks 

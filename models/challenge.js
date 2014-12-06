@@ -9,6 +9,10 @@ var mongoose = require('mongoose'),
 
 var challengeSchema = new Schema({
     name          : String, 
+    desc          : String, 
+    rules         : [], 
+    limitWins     : Number, 
+    idNotificationTemplate     : Number, 
 	created       : Date         
 });
 
