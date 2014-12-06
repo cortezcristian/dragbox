@@ -270,8 +270,7 @@ according to their roles</p>
     <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Admins(), <span class="hljs-keyword">new</span> adminLoginForm()).getForm();
     <span class="hljs-keyword">var</span> formHTML = Handlebars.helpers.renderForm(form);
     res.render(<span class="hljs-string">'admin'</span>, { title: <span class="hljs-string">'Admin'</span>, section: <span class="hljs-string">'Admin'</span>, user: req.user, form: formHTML });
-});
-<span class="hljs-comment">/* page:public:end */</span></pre></div></div>
+});</pre></div></div>
             
         </li>
         
@@ -282,10 +281,14 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <h2 id="2-admin-routes">2. Admin Routes</h2>
-<hr>
+              <h3 id="terms-and-conditions-page">terms-and-conditions Page</h3>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/terms-and-conditions'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    res.render(<span class="hljs-string">'terms-and-conditions'</span>, { title: <span class="hljs-string">'terms-and-conditions'</span>, section: <span class="hljs-string">'terms-and-conditions'</span>, user: req.user });
+});
+<span class="hljs-comment">/* page:public:end */</span></pre></div></div>
             
         </li>
         
@@ -295,6 +298,20 @@ according to their roles</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <h2 id="2-admin-routes">2. Admin Routes</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <h3 id="login">Login</h3>
 
@@ -307,11 +324,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <h3 id="panel">Panel</h3>
 
@@ -324,11 +341,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <h3 id="panel">Panel</h3>
 
@@ -345,27 +362,14 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-16">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
-              </div>
-              <h2 id="3-public-rest">3. Public Rest</h2>
-<hr>
-
-            </div>
-            
-        </li>
-        
-        
         <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p><a href="https://github.com/florianholzapfel/express-restify-mongoose">https://github.com/florianholzapfel/express-restify-mongoose</a></p>
+              <h2 id="3-public-rest">3. Public Rest</h2>
+<hr>
 
             </div>
             
@@ -377,6 +381,19 @@ according to their roles</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p><a href="https://github.com/florianholzapfel/express-restify-mongoose">https://github.com/florianholzapfel/express-restify-mongoose</a></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>CORS Interceptors</p>
 
@@ -400,11 +417,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-19">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>GET /api/v1/samples</p>
 
@@ -427,11 +444,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-20">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <h2 id="4-crud-forms">4. Crud Forms</h2>
 <hr>
@@ -441,11 +458,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-21">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p><a href="https://github.com/oJshua/mongoose-forms">https://github.com/oJshua/mongoose-forms</a></p>
 
@@ -456,11 +473,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-22">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>mongooseForms.bindHelpers(Handlebars, ‘bootstrap’);</p>
 
@@ -481,11 +498,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p>delete SampleForm.options.fields[“<strong>v”];
 SampleForm.options.maps[“</strong>v”] = false;</p>
@@ -513,11 +530,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p>Override type with ngoform setting</p>
 
@@ -535,11 +552,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>form.options.fields[“name”].template = ‘Lala’;</p>
 
@@ -567,11 +584,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-26">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p>var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();</p>
 
@@ -598,11 +615,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-27">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -612,11 +629,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-28">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               
             </div>
@@ -634,11 +651,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-29">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-29">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 

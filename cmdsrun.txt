@@ -1,1 +1,27 @@
+#page
 grunt create:page:terms-and-conditions
+#models
+grunt create:model:Challenge
+grunt create:model:Rule
+grunt create:model:Action
+grunt create:model:Reward
+grunt create:model:Notification
+grunt create:model:LogAction
+grunt create:model:LogReward
+grunt create:model:LogChallenge
+grunt create:rest:Challenge
+grunt create:rest:Rule
+grunt create:rest:Action
+grunt create:rest:Reward
+grunt create:rest:Notification
+grunt create:rest:LogAction
+grunt create:rest:LogReward
+grunt create:rest:LogChallenge
+grunt create:crud:Challenge
+grunt create:crud:Rule
+grunt create:crud:Action
+grunt create:crud:Reward
+grunt create:crud:Notification
+grunt create:crud:LogAction
+grunt create:crud:LogReward
+grunt create:crud:LogChallenge
