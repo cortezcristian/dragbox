@@ -59,6 +59,11 @@ app.get('/admin', function (req, res) {
     var formHTML = Handlebars.helpers.renderForm(form);
     res.render('admin', { title: 'Admin', section: 'Admin', user: req.user, form: formHTML });
 });
+
+// ### terms-and-conditions Page
+app.get('/terms-and-conditions', function (req, res) {
+    res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'terms-and-conditions', user: req.user });
+});
 /* page:public:end */
 
 // ## 2. Admin Routes

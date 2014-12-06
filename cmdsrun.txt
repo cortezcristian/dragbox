@@ -1,0 +1,1 @@
+grunt create:page:terms-and-conditions
