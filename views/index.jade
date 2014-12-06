@@ -10,3 +10,51 @@ block content
       p.white #{__("Just a drop-box parody...")}
       p
         a.btn.btn-primary.btn-lg(role='button',href="#register") Register Now!
+  .row(style="margin:3px")
+    .col-sm-10.col-sm-offset-1
+      .panel.panel-default
+        .panel-body
+          .register-head(style="margin-top:70px")
+            h2.hammerfont
+              i.fa.fa-dropbox.fa-3(style="padding:0 3px;")
+              | Dragbox
+            p Register today and start rocking!
+          form#register-form(action="/register",method="post",role="form")
+            .form-group
+              label.col-md-4.control-label(for="reg-email") Email:
+              .col-md-8
+                input#reg-email.form-control(type="email", name="email", placeholder="demo@demo.com")
+                span.help-block
+            .form-group
+              label.col-md-4.control-label(for="reg-password") Password:
+              .col-md-8
+                input#reg-password.form-control(type="password", name="password", placeholder="Password")
+                span.help-block
+            .form-group
+              label.col-md-4.control-label(for="passwordrepeat") Repeat Password:
+              .col-md-8
+                input#passwordrepeat.form-control(type="password", name="passwordrepeat", placeholder="Repeat Password")
+                span.help-block
+            .form-group
+              .col-md-4
+                .hide Terms and Conditions Acceptance:
+              .col-md-8
+                label.checkbox-inline(for="tyc")
+                  input#tyc(type="checkbox",name="tyc",value="1")
+                  | I have read and I accept the 
+                  a(href="#") terms and conditions
+                span.help-block
+            .form-group
+              .col-md-4.control-label
+              .col-md-8
+                !{recaptcha_form}
+            .form-group
+              .col-md-4
+                label.control-label.hide(for="register-btn") Register:
+              .col-md-8
+                button.btn.btn-primary#register-btn(type="submit") Register
+            .form-group
+              .col-md-4
+              .col-md-8
+                p(style="padding-top:10px") Already have an account? 
+                  a(href="/login") Login
