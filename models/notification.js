@@ -5,7 +5,6 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
-    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var notificationSchema = new Schema({

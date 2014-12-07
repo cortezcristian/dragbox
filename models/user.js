@@ -11,6 +11,11 @@ var LogAction = require('./logaction.js');
 var Action = require('./action.js');
 var Rule = require('./rule.js');
 var Challenge = require('./challenge.js');
+var LogChallenge = require('./logchallenge.js');
+var LogReward = require('./logreward.js');
+var Reward = require('./reward.js');
+var NotificationTemplate = require('./notificationtemplate.js');
+var Notification = require('./notification.js');
 
 var userSchema = new Schema({
     name          : String, 
@@ -70,7 +75,11 @@ userSchema.method("logAction", function(param, cb) {
                                     if(completed) {
                                         ch.checkAvailability(user.id, function(err, available){
                                             console.log("availability->", available, err);
-                                            cb(err, available);
+                                            if(available) {
+                                                user.achievementLogRewardAndNotify(ch.id, cb);
+                                            } else {
+                                                cb("Challenge not available: "+ch.name, available);
+                                            }
                                         });
                                     } else {
                                         cb(err, null);
@@ -96,6 +105,40 @@ userSchema.method("logAction", function(param, cb) {
     } else {
         cb(new Error("Wrong parameters supplied"), null)
     }
+});
+
+userSchema.method("achievementLogRewardAndNotify", function(challId, cb) {
+    var user = this;
+    
+    Challenge.findOne({_id: challId}, function(err, ch1){
+      if(ch1) {
+        var logC = new LogChallenge({ idChallenge: challId, idUser: user.id});
+        logC.save(function(err, logC1){
+          Reward.findOne({_id: ch1.idReward}, function(err, reward1){
+            //give points
+            user.points += reward1.amount;
+            user.save(function(err, user1){
+              // Log reward
+              var logR = new LogReward({idReward: reward1.id, idUser: user.id });
+              logR.save(function(err, logR1){
+                // Notify the user
+                NotificationTemplate.findOne({_id: ch1.idNotificationTemplate},function(err, nt){
+                    var notification = new Notification({
+                        idUserTo: user.id,
+                        title: nt.title,
+                        message: nt.message,
+                        icon: nt.icon
+                    });
+                    notification.save(cb);
+                });
+              });
+            });    
+          });
+        });
+      } else {
+        cb(new Error('Challenge unloked not found'), null); 
+      }
+    });
 });
 
 // ### Method:
