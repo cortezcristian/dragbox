@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="user.html">
+                user.js
+              </a>
+            
+              
               <a class="source" href="auth.html">
                 auth.js
               </a>
@@ -109,6 +114,11 @@
               </a>
             
               
+              <a class="source" href="logchallenges-rest-tests.html">
+                logchallenges-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="logrewards-rest-tests.html">
                 logrewards-rest-tests.js
               </a>
@@ -136,6 +146,11 @@
               
               <a class="source" href="samples-rest-tests.html">
                 samples-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="users-rest-tests.html">
+                users-rest-tests.js
               </a>
             
               
@@ -198,6 +213,11 @@
                 sample-tests.js
               </a>
             
+              
+              <a class="source" href="user-tests.html">
+                user-tests.js
+              </a>
+            
           </div>
         </li>
       </ul>
@@ -250,12 +270,21 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>), 
-    Schema = mongoose.Schema;
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose             = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>),
+    Rule                 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./rule.js'</span>),
+    Reward               = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./reward.js'</span>),
+    NotificationTemplate = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notificationtemplate.js'</span>),
+    Schema               = mongoose.Schema;
 
 <span class="hljs-keyword">var</span> challengeSchema = <span class="hljs-keyword">new</span> Schema({
-    name          : <span class="hljs-built_in">String</span>, 
-	created       : <span class="hljs-built_in">Date</span>         
+    name                   : <span class="hljs-built_in">String</span>,
+    desc                   : <span class="hljs-built_in">String</span>,
+    rules                  : [ { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'Rule'</span> } ],
+    idReward               : { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'Reward'</span> },
+    idNotificationTemplate : { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'NotificationTemplate'</span> },
+    limitWins              : { type : <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span> : <span class="hljs-number">0</span> },
+    repeat                 : { type : <span class="hljs-built_in">Boolean</span>, <span class="hljs-keyword">default</span> : <span class="hljs-literal">false</span> },
+	created                : <span class="hljs-built_in">Date</span>
 });</pre></div></div>
             
         </li>

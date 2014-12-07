@@ -5,11 +5,19 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
+    Action = require('./action.js'),
+    Schema = mongoose.Schema,
+    enumConditions = ['>=','=','<='];
 
 var ruleSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name        : String,
+    desc        : String,
+    challengeId : Number,
+    actionId    : { type : Schema.Types.ObjectId, ref : 'Action' },
+    times       : { type : Number, default: 1 },
+    condition   : { type : String, enum : enumConditions, default: '=' },
+    tag         : String,
+	created     : Date
 });
 
 // ### Hooks 

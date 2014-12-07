@@ -5,10 +5,15 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
+    Reward = require('./reward.js'),
+    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var logrewardSchema = new Schema({
     name          : String, 
+    idReward      : { type  : Schema.Types.ObjectId, ref : 'Reward' },
+    idUser        : { type  : Schema.Types.ObjectId, ref : 'User' },
+    amount        : { type  : Number, default: 0 }, 
 	created       : Date         
 });
 

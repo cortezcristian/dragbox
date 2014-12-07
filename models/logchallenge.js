@@ -5,10 +5,14 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
+    Challenge = require('./challenge.js'),
+    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var logchallengeSchema = new Schema({
     name          : String, 
+    idChallenge   : { type  : Schema.Types.ObjectId, ref : 'Challenge' },
+    idUser        : { type  : Schema.Types.ObjectId, ref : 'User' },
 	created       : Date         
 });
 

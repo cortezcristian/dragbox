@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
 
 var actionSchema = new Schema({
     name          : String, 
+    desc          : String, 
 	created       : Date         
 });
 

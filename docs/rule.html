@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="user.html">
+                user.js
+              </a>
+            
+              
               <a class="source" href="auth.html">
                 auth.js
               </a>
@@ -109,6 +114,11 @@
               </a>
             
               
+              <a class="source" href="logchallenges-rest-tests.html">
+                logchallenges-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="logrewards-rest-tests.html">
                 logrewards-rest-tests.js
               </a>
@@ -136,6 +146,11 @@
               
               <a class="source" href="samples-rest-tests.html">
                 samples-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="users-rest-tests.html">
+                users-rest-tests.js
               </a>
             
               
@@ -198,6 +213,11 @@
                 sample-tests.js
               </a>
             
+              
+              <a class="source" href="user-tests.html">
+                user-tests.js
+              </a>
+            
           </div>
         </li>
       </ul>
@@ -251,11 +271,19 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>), 
-    Schema = mongoose.Schema;
+    Action = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./action.js'</span>),
+    Schema = mongoose.Schema,
+    enumConditions = [<span class="hljs-string">'&gt;='</span>,<span class="hljs-string">'='</span>,<span class="hljs-string">'&lt;='</span>];
 
 <span class="hljs-keyword">var</span> ruleSchema = <span class="hljs-keyword">new</span> Schema({
-    name          : <span class="hljs-built_in">String</span>, 
-	created       : <span class="hljs-built_in">Date</span>         
+    name        : <span class="hljs-built_in">String</span>,
+    desc        : <span class="hljs-built_in">String</span>,
+    challengeId : <span class="hljs-built_in">Number</span>,
+    actionId    : { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'Action'</span> },
+    times       : { type : <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">1</span> },
+    condition   : { type : <span class="hljs-built_in">String</span>, enum : enumConditions, <span class="hljs-keyword">default</span>: <span class="hljs-string">'='</span> },
+    tag         : <span class="hljs-built_in">String</span>,
+	created     : <span class="hljs-built_in">Date</span>
 });</pre></div></div>
             
         </li>

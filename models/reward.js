@@ -5,10 +5,13 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    enumRewardTypes = ['points', 'medal'];
 
 var rewardSchema = new Schema({
     name          : String, 
+    rType         : { type: String, enum: enumRewardTypes, default: 'points' },
+    amount        : { type: Number, default: 0}, 
 	created       : Date         
 });
 

@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="user.html">
+                user.js
+              </a>
+            
+              
               <a class="source" href="auth.html">
                 auth.js
               </a>
@@ -109,6 +114,11 @@
               </a>
             
               
+              <a class="source" href="logchallenges-rest-tests.html">
+                logchallenges-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="logrewards-rest-tests.html">
                 logrewards-rest-tests.js
               </a>
@@ -136,6 +146,11 @@
               
               <a class="source" href="samples-rest-tests.html">
                 samples-rest-tests.js
+              </a>
+            
+              
+              <a class="source" href="users-rest-tests.html">
+                users-rest-tests.js
               </a>
             
               
@@ -198,6 +213,11 @@
                 sample-tests.js
               </a>
             
+              
+              <a class="source" href="user-tests.html">
+                user-tests.js
+              </a>
+            
           </div>
         </li>
       </ul>
@@ -255,6 +275,8 @@
 
 <span class="hljs-keyword">var</span> rewardSchema = <span class="hljs-keyword">new</span> Schema({
     name          : <span class="hljs-built_in">String</span>, 
+    type          : <span class="hljs-built_in">String</span>, 
+    points        : { type: <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">0</span>}, 
 	created       : <span class="hljs-built_in">Date</span>         
 });</pre></div></div>
             

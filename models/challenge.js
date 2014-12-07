@@ -4,12 +4,21 @@
 // Modules Dependencies:
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
-var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
+var mongoose             = require('mongoose'),
+    Rule                 = require('./rule.js'),
+    Reward               = require('./reward.js'),
+    NotificationTemplate = require('./notificationtemplate.js'),
+    Schema               = mongoose.Schema;
 
 var challengeSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name                   : String,
+    desc                   : String,
+    rules                  : [ { type : Schema.Types.ObjectId, ref : 'Rule' } ],
+    idReward               : { type : Schema.Types.ObjectId, ref : 'Reward' },
+    idNotificationTemplate : { type : Schema.Types.ObjectId, ref : 'NotificationTemplate' },
+    limitWins              : { type : Number, default : 0 },
+    repeat                 : { type : Boolean, default : false },
+	created                : Date
 });
 
 // ### Hooks 
