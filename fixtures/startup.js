@@ -224,4 +224,49 @@ var loadChallenges = function(cb) {
         
 };
 
-async.series([clearCollections, loadActions, loadRules, loadRewards, loadNotificationTemplates, loadChallenges]);
+/**
+ *
+
+## RulesChallenges
+
+| Name | Desc                       | Rules |
+| :--- | :---                       | :---  |
+| ch1  | Visit terms and conditions | r1    |
+| ch2  | Scroll down the page       | r2    |
+| ch3  | View terms with video      | r3    |
+| ch4  | Answer Quiz                | r4    |
+
+ */
+
+var loadRules2Challenges = function(cb) {
+    var chs = [ 
+        { name: "ch1", rules : ["r1"] }
+        , { name: "ch2", rules : ["r2"] }
+        , { name: "ch3", rules : ["r3"] }
+        , { name: "ch4", rules : ["r4"] }
+        ];
+
+    async.mapSeries(chs, function(op, callback){
+      Challenge.findOne({ name: op.name }, function(err, ch1){
+        console.log("Processing challenge", ch1.name);
+        async.mapSeries(op.rules, function(ruleItemName, callbackRule){
+          Rule.findOne({name: ruleItemName }, function(err, rule1){
+            ch1.addRule(rule1, function(err, ch2){
+                console.log("Rule added to challenge...", rule1.name, ch2.name, err);
+                callbackRule(err, op);
+            });
+          });
+        }, function(err, rules2challenge){
+          //console.log(">>>", err, res);    
+          //cb(null, 'Rules to challenge loaded')
+          callback(err, op);
+        });
+      });
+    }, function(err, res){
+        //console.log(">>>", err, res);    
+        cb(null, 'Challenges Loaded')
+    });
+        
+};
+
+async.series([clearCollections, loadActions, loadRules, loadRewards, loadNotificationTemplates, loadChallenges, loadRules2Challenges]);
