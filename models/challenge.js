@@ -9,6 +9,7 @@ var mongoose             = require('mongoose'),
     Rule                 = require('./rule.js'),
     Reward               = require('./reward.js'),
     NotificationTemplate = require('./notificationtemplate.js'),
+    LogAction            = require('./logaction.js'),
     Schema               = mongoose.Schema;
 
 var challengeSchema = new Schema({
@@ -88,34 +89,52 @@ challengeSchema.method("addRule", function(obj, cb) {
 //
 challengeSchema.method("checkCompleted", function(userId, cb) {
     var ch1 = this;
-    var completed = true;
+    var challengecompleted = true;
 
-    if (ch1.rules && ch1.rules.lenght >0 ) {
+    if (ch1.rules && ch1.rules.length > 0 ) {
         async.mapSeries(ch1.rules, function(ruleId, callback) {
-            Rules.findOne({id: ruleId}, function(err, r1){
+            Rule.findOne({_id: ruleId}, function(err, r1){
+               var rulecompleted = false;
+               console.log("checkrule-->", r1, err);
                LogAction.find({ idUser: userId, idActionFired: r1.actionId, tag: r1.tag }, function(err, logsA){
+                   console.log("logsA-->", logsA, err);
                    if(logsA) {
-                       switch(rule.condition){
+                       switch(r1.condition){
                          case '>=':
-                            completed = (logsA.length >= rules.times)? true : false;
+                            rulecompleted = (logsA.length >= r1.times)? true : false;
                          break;
                          case '<=':
-                            completed = (logsA.length >= rules.times)? true : false;
+                            rulecompleted = (logsA.length >= r1.times)? true : false;
                          break;
                          case '=':
-                            completed = (logsA.length == rules.times)? true : false;
+                            rulecompleted = (logsA.length == r1.times)? true : false;
                          break;
                          default:
                          break;
                        }
-                       cb(null, completed);
+                       callback(null, rulecompleted);
                    } else {
-                    completed = false;
-                    cb(new Error('Action not found for this user in the ActionLog'), completed);    
+                    rulecompleted = false;
+                    callback(new Error('Action not found for this user in the ActionLog'), rulecompleted);    
                    }
                });
             });
         }, function(err, result){
+            console.log("async", result, err);
+            if(typeof err === "undefined") {
+                var checkAllRules = true;
+                result.forEach(function(v,i){
+                    if(!v){
+                        checkAllRules = false;
+                    }
+                });
+                challengecompleted = checkAllRules;
+                cb(err, challengecompleted);
+
+            } else {
+                challengecompleted = false;
+                cb(err, challengecompleted);
+            }
         });
     } else {
         completed = false;
