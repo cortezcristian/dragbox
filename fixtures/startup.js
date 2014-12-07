@@ -48,6 +48,7 @@ var clearCollections = function(cb) {
 | answer     | Answer Quiz           |
 | answerok   | Answer Quiz correctly |
 | answerfail | Answer Quiz wrongly   |
+| click      | Click some target     |
 
  */
 var loadActions = function(cb) {
@@ -58,6 +59,7 @@ var loadActions = function(cb) {
         , { name: "answer", desc: "Answer Quiz" } 
         , { name: "answerok", desc: "Answer Quiz correctly" } 
         , { name: "answerfail", desc: "Answer Quiz wrongly" } 
+        , { name: "click", desc: "Click some target" } 
         ];
 
     async.mapSeries(actions, function(op, callback){

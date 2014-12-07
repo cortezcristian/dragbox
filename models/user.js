@@ -7,6 +7,8 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt-nodejs');
+var LogAction = require('./logaction.js');
+var Action = require('./action.js');
 
 var userSchema = new Schema({
     name          : String, 
@@ -29,6 +31,31 @@ userSchema.pre("save", function(next) {
 
 userSchema.method('authenticate', function(password) {
     return bcrypt.compareSync(password, this.password);
+});
+
+userSchema.method("logAction", function(param, cb) {
+    var user = this;
+    if(typeof param.name !== "undefined" && typeof param.tag !== "undefined") {
+        Action.findOne({name: param.name}, function(err, action){
+            if(err) {
+                cb(err, null)
+            } else {
+                if (action) {
+                    var log = new LogAction({
+                        name          : param.name,
+                        idUser        : user.id,
+                        idAction      : action.id,
+                        tag           : param.tag
+                    });
+                    log.save(cb);
+                } else {
+                    cb(new Error("Action not found"), null);
+                }
+            }
+        });
+    } else {
+        cb(new Error("Wrong parameters supplied"), null)
+    }
 });
 
 // ### Method:
