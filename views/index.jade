@@ -9,54 +9,54 @@ block content
       p.white #{__("FPO! Not a real company")}
       p.white #{__("Just a drop-box parody...")}
       p
-        a.btn.btn-primary.btn-lg(role='button',href="#register") Register Now!
+        a.btn.btn-primary.btn-lg(role='button',href="#register") #{__("Register Now!")}
   .row.our-main-content
     .col-sm-10.col-sm-offset-1
       .col-sm-6.col-md-4
         .thumbnail
           img(src='http://placehold.it/700x300&text=100GB', alt='...',style="height: 170px;")
           .caption
-            h3 Starter Plan  
-              span.label.label-success(style="font-size:12px;") New!
+            h3 #{__("Starter Plan")}  
+              span.label.label-success(style="font-size:12px;") #{__("New!")}
             div(style="min-height: 100px;")
-              p Nice plan for your grandma pics. What do we offer?
+              p #{__("Nice plan for your grandma pics. What do we offer?")}
               ul
-                li 100 GB Space
-                li 1 USD per month 
+                li #{__("100 GB Space")}
+                li #{__("1 USD per month")} 
             p
-              a.btn.btn-primary(href='#register', role='button') Buy it!
+              a.btn.btn-primary(href='#register', role='button') #{__("Buy it!")}
               | 
-              a.btn.btn-default(href='#register', role='button') More..
+              a.btn.btn-default(href='#register', role='button') #{__("More..")}
       .col-sm-6.col-md-4
         .thumbnail
           img(src='http://placehold.it/700x300&text=500GB', alt='...',style="height: 170px;")
           .caption
-            h3 Silver Plan   
-              span.label.label-success(style="font-size:12px;") New!
+            h3 #{__("Silver Plan")}   
+              span.label.label-success(style="font-size:12px;") #{__("New!")}
             div(style="min-height: 100px;")
-              p Nice plan for starters, don't be a chicken. What do we offer?
+              p #{__("Nice plan for starters, don't be a chicken. What do we offer?")}
               ul
-                li 500 GB Space
-                li 3 USD per month 
+                li #{__("500 GB Space")}
+                li #{__("3 USD per month")} 
             p
-              a.btn.btn-primary(href='#register', role='button') Buy it!
+              a.btn.btn-primary(href='#register', role='button') #{__("Buy it!")}
               | 
-              a.btn.btn-default(href='#register', role='button') More..
+              a.btn.btn-default(href='#register', role='button') #{__("More..")}
       .col-sm-6.col-md-4
         .thumbnail
           img(src='http://placehold.it/700x300&text=1TB', alt='...',style="height: 170px;")
           .caption
-            h3 Rockstar Plan  
-              span.label.label-success(style="font-size:12px;") New!
+            h3 #{__("Rockstar Plan")}  
+              span.label.label-success(style="font-size:12px;") #{__("New!")}
             div(style="min-height: 100px;")
-              p Buy it now! and become a ninja rockstar. What do we offer?
+              p #{__("Buy it now! and become a ninja rockstar. What do we offer?")}
               ul
-                li 1 TB Space
-                li 9 USD per month 
+                li #{__("1 TB Space")}
+                li #{__("9 USD per month")}
             p
-              a.btn.btn-primary(href='#register', role='button') Buy it!
+              a.btn.btn-primary(href='#register', role='button') #{__("Buy it!")}
               | 
-              a.btn.btn-default(href='#register', role='button') More..
+              a.btn.btn-default(href='#register', role='button') #{__("More..")}
     span#register
   .row(style="margin:3px")
     .col-sm-10.col-sm-offset-1
@@ -66,7 +66,7 @@ block content
             h2.hammerfont
               i.fa.fa-dropbox.fa-3(style="padding:0 3px;")
               | Dragbox
-            p Register today and start rocking!
+            p #{__("Register today and start rocking!")}
           form#register-form(action="/register",method="post",role="form")
             .form-group
               label.col-md-4.control-label(for="reg-email") Email:
@@ -74,31 +74,31 @@ block content
                 input#reg-email.form-control(type="email", name="email", placeholder="demo@demo.com")
                 span.help-block
             .form-group
-              label.col-md-4.control-label(for="reg-password") Password:
+              label.col-md-4.control-label(for="reg-password") #{__("Password:")}
               .col-md-8
                 input#reg-password.form-control(type="password", name="password", placeholder="Password")
                 span.help-block
             .form-group
-              label.col-md-4.control-label(for="passwordrepeat") Repeat Password:
+              label.col-md-4.control-label(for="passwordrepeat") #{__("Repeat Password:")}
               .col-md-8
                 input#passwordrepeat.form-control(type="password", name="passwordrepeat", placeholder="Repeat Password")
                 span.help-block
             .form-group
               .col-md-4
-                .hide Terms and Conditions Acceptance:
+                .hide #{__("Terms and Conditions Acceptance:")}
               .col-md-8
                 label.checkbox-inline(for="tyc")
                   input#tyc(type="checkbox",name="tyc",value="1")
-                  | I have read and I accept the 
-                  a(href="#") terms and conditions
+                  | #{__("I have read and I accept the")} 
+                  a(href="#") #{__("terms and conditions")}
                 span.help-block
             .form-group
               .col-md-4
-                label.control-label.hide(for="register-btn") Register:
+                label.control-label.hide(for="register-btn") #{__("Register:")}
               .col-md-8
-                button.btn.btn-primary#register-btn(type="submit") Register
+                button.btn.btn-primary#register-btn(type="submit") #{__("Register")}
             .form-group
               .col-md-4
               .col-md-8
-                p(style="padding-top:10px") Already have an account? 
-                  a(href="/login") Login
+                p(style="padding-top:10px") #{__("Already have an account?")} 
+                  a(href="/login") #{__("Login")}
