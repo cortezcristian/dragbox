@@ -76,6 +76,47 @@ var loadActions = function(cb) {
 /**
  *
 
+## Rules
+
+| Name | Desc                                   |
+| :--- | :---                                   |
+| r1   | Visit terms and conditions (taco) >= 1 |
+| r2   | Scroll down the page (taco) >= 1       |
+| r3   | View terms with video (VideoID) >= 1   |
+| r4   | Answer Quiz (QuizId) >= 1              |
+
+ */
+
+var loadRules = function(cb) {
+    var rules = [ 
+        { actionname: "visit", obj: { name: "r1", desc: "Visit terms and conditions (taco) >= 1", condition: ">=", tag: "taco" } } 
+        , { actionname: "scroll", obj: { name: "r2", desc: "Visit terms and conditions (taco) >= 1", condition: ">=", tag:"taco" } }
+        , { actionname: "watchvideo", obj: { name: "r3", desc: "View terms with video (VideoID) >= 1", condition: ">=", tag:"VideoId" } }
+        , { actionname: "answer", obj: { name: "r4", desc: "Answer Quiz (QuizId) >= 1", condition: ">=", tag:"quiz" } }
+        ];
+
+    async.mapSeries(rules, function(op, callback){
+        var r1 = new Rule(op.obj);
+        r1.save(function(err, doc){
+            Action.findOne({name: op.actionname}, function(err, action1){
+                doc.actionId = action1._id;
+                doc.save(function(err, doc){
+                    console.log("Rule added...", doc.name, err);
+                    callback(err, op);
+                });
+            });
+        });
+    }, function(err, res){
+        //console.log(">>>", err, res);    
+        cb(null, 'Rules Loaded')
+    });
+        
+};
+
+
+/**
+ *
+
 ## Challenges
 
 | Name | Desc                       |
@@ -108,4 +149,4 @@ var loadChallenges = function(cb) {
         
 };
 
-async.series([clearCollections, loadActions, loadChallenges]);
+async.series([clearCollections, loadActions, loadRules, loadChallenges]);
