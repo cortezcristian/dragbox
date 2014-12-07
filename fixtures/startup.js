@@ -113,6 +113,39 @@ var loadRules = function(cb) {
         
 };
 
+/**
+ *
+
+## Rewards
+
+| Name    | Desc             |
+| :---    | :---             |
+| reward1 | Earn +10 points  |
+| reward2 | Earn +50 points  |
+| reward3 | Earn +100 points |
+| reward4 | Earn +150 points |
+
+ */
+var loadRewards = function(cb) {
+    var rewards = [ 
+        { name: "reward1", desc: "Earn +10 points", amount: 10 } 
+        , { name: "reward2", desc: "Earn +50 points", amount: 50 } 
+        , { name: "reward3", desc: "Earn +100 points", amount: 100 } 
+        , { name: "reward4", desc: "Earn +150 points", amount: 150 } 
+        ];
+
+    async.mapSeries(rewards, function(op, callback){
+        var r1 = new Reward(op);
+        r1.save(function(err, doc){
+            console.log("Reward added...", doc.name, err);
+            callback(err, op);
+        });
+    }, function(err, res){
+        //console.log(">>>", err, res);    
+        cb(null, 'Rewards Loaded')
+    });
+        
+};
 
 /**
  *
@@ -149,4 +182,4 @@ var loadChallenges = function(cb) {
         
 };
 
-async.series([clearCollections, loadActions, loadRules, loadChallenges]);
+async.series([clearCollections, loadActions, loadRules, loadRewards, loadChallenges]);

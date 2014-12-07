@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 
 var rewardSchema = new Schema({
     name          : String, 
+    desc          : String, 
     rType         : { type: String, enum: enumRewardTypes, default: 'points' },
     amount        : { type: Number, default: 0}, 
 	created       : Date         
