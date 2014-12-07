@@ -5,19 +5,28 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
     name          : String, 
+    email         : String, 
+    password      : String, 
 	created       : Date         
 });
 
 // ### Hooks 
 // #### Pre-Save
 userSchema.pre("save", function(next) {
+    if(this.isModified('password'))
+        this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8), null);
     if(!this.created)
         this.created = new Date();
     next();
+});
+
+userSchema.method('authenticate', function(password) {
+    return bcrypt.compareSync(password, this.password);
 });
 
 // ### Method:
