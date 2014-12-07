@@ -10,6 +10,7 @@ var mongoose             = require('mongoose'),
     Reward               = require('./reward.js'),
     NotificationTemplate = require('./notificationtemplate.js'),
     LogAction            = require('./logaction.js'),
+    LogChallenge         = require('./logchallenge.js'),
     Schema               = mongoose.Schema;
 
 var challengeSchema = new Schema({
@@ -170,7 +171,7 @@ challengeSchema.method("checkAvailability", function(userId, cb) {
          }
        } 
        // check if it is live
-       if (!ch.live) {
+       if (!ch1.live) {
           available = false;
        } 
        cb(err, available);
