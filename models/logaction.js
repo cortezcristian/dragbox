@@ -5,11 +5,15 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
+    Action = require('./action.js'),
     Schema = mongoose.Schema;
 
 var logactionSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name          : String,
+    idActionFired : { type  : Schema.Types.ObjectId, ref : 'Action' },
+    idUser        : Number,
+    tag           : String,
+	created       : Date
 });
 
 // ### Hooks 

@@ -109,6 +109,11 @@
               </a>
             
               
+              <a class="source" href="logchallenges-rest-tests.html">
+                logchallenges-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="logrewards-rest-tests.html">
                 logrewards-rest-tests.js
               </a>
@@ -251,11 +256,15 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>), 
+    Action = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./action.js'</span>),
     Schema = mongoose.Schema;
 
 <span class="hljs-keyword">var</span> logactionSchema = <span class="hljs-keyword">new</span> Schema({
-    name          : <span class="hljs-built_in">String</span>, 
-	created       : <span class="hljs-built_in">Date</span>         
+    name          : <span class="hljs-built_in">String</span>,
+    idActionFired : { type  : Schema.Types.ObjectId, ref : <span class="hljs-string">'Action'</span> },
+    idUser        : <span class="hljs-built_in">Number</span>,
+    tag           : <span class="hljs-built_in">String</span>,
+	created       : <span class="hljs-built_in">Date</span>
 });</pre></div></div>
             
         </li>
