@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 var ruleSchema = new Schema({
     name        : String,
     desc        : String,
-    challengeId : Number,
+    challengeId : { type : Schema.Types.ObjectId, ref : 'Challenge' },
     actionId    : { type : Schema.Types.ObjectId, ref : 'Action' },
     times       : { type : Number, default: 1 },
     condition   : { type : String, enum : enumConditions, default: '=' },

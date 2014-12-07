@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcrypt-nodejs');
 var LogAction = require('./logaction.js');
 var Action = require('./action.js');
+var Rule = require('./rule.js');
 
 var userSchema = new Schema({
     name          : String, 
@@ -44,10 +45,16 @@ userSchema.method("logAction", function(param, cb) {
                     var log = new LogAction({
                         name          : param.name,
                         idUser        : user.id,
-                        idAction      : action.id,
+                        idActionFired : action.id,
                         tag           : param.tag
                     });
-                    log.save(cb);
+                    log.save(function(err, log1){
+                        console.log(err, log1);
+                        // Get all the rules
+                        Rule.find({actionId: log1.idActionFired }, function(err, rules){
+                            cb(err, rules);    
+                        });
+                    });
                 } else {
                     cb(new Error("Action not found"), null);
                 }

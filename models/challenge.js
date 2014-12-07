@@ -63,7 +63,12 @@ challengeSchema.method("addRule", function(obj, cb) {
         }
         
         challenge.rules.splice(position, 0, r1);
-        challenge.save(cb);
+        challenge.save(function(errch1, ch1){
+            r1.challengeId = ch1.id;
+            r1.save(function(err, r2){
+                cb(errch1, ch1);
+            });
+        });
     }
 });
 
