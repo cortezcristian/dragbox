@@ -123,6 +123,42 @@ challengeSchema.method("checkCompleted", function(userId, cb) {
     }
 });
 
+// ### Method: checkAvailability
+//
+// Usage:
+//
+//     var challenge = new Challenge({name:"ch1"});
+//     challenge.checkComplted(userId, function(err, available){});
+//
+// | Param  | Type     | Description                                                         |
+// | :----  | :----    | :----                                                               |
+// | userId | ObjectId | UserId necessary to filter LogAction                                |
+// | cb     | function | Callback function that'll return error and available boolean object |
+//
+//
+challengeSchema.method("checkAvailability", function(userId, cb) {
+    var ch1 = this;
+    var available = false;
+    var completedTimes = 0;
+
+    LogChallenge.find({ idUser: userId, idChallenge: ch1.id}, function(err, logC){
+       completedTimes = (logC) ? logC.length : 0;
+       if (completedTimes == 0) {
+          available = true;
+       } else if (completedTimes > 0) {
+         if(ch1.repeat) {
+           available = true;
+         }
+       } 
+       // check if it is live
+       if (!ch.live) {
+          available = false;
+       } 
+       cb(err, available);
+    });
+    
+});
+
 // ### Method:
 challengeSchema.method("instanceMethod", function(param, cb) {
     var challenge = this;

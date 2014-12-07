@@ -67,7 +67,11 @@ userSchema.method("logAction", function(param, cb) {
                                 console.log("-->", err, ch);
                                 ch.checkCompleted(user.id, function(err, completed){
                                     console.log("c->", completed);
-                                    cb(err, completed);            
+                                    if(completed) {
+                                        ch.checkAvailability();
+                                    } else {
+                                        cb(err, null);            
+                                    }
                                 });
                                 
                             });
