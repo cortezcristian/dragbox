@@ -5,11 +5,16 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
+    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var notificationSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name     : String,
+    title    : String,
+    message  : String,
+    icon     : String,
+    idUserTo : { type  : Schema.Types.ObjectId, ref : 'User' },
+	created  : Date
 });
 
 // ### Hooks 

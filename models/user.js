@@ -12,6 +12,7 @@ var userSchema = new Schema({
     name          : String, 
     email         : String, 
     password      : String, 
+    points        : { type: Number, default: 0 }, 
 	created       : Date         
 });
 

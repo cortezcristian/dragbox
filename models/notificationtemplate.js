@@ -8,8 +8,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var notificationtemplateSchema = new Schema({
-    name          : String, 
-	created       : Date         
+    name    : String,
+    title   : String,
+    message : String,
+    icon    : String,
+	created : Date
 });
 
 // ### Hooks 

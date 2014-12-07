@@ -6,12 +6,13 @@
 //  
 var mongoose = require('mongoose'), 
     Action = require('./action.js'),
+    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var logactionSchema = new Schema({
     name          : String,
     idActionFired : { type  : Schema.Types.ObjectId, ref : 'Action' },
-    idUser        : Number,
+    idUser        : { type  : Schema.Types.ObjectId, ref : 'User' },
     tag           : String,
 	created       : Date
 });
