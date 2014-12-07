@@ -417,6 +417,7 @@ app.get('/forms/sample/edit', function (req, res) {
 
 // ## 5. Super Admin Tasks
 // --------------------------------------
+/*
 app.get('/tasks/test', function (req, res) {
     shell.exec('./node_modules/mocha/bin/mocha --reporter doc', function(code, output) {
         console.log('Exit code:', code);
@@ -424,7 +425,6 @@ app.get('/tasks/test', function (req, res) {
         res.end(output);
     });
 });
-/*
 // TODO: prevent auto-reboot when running with grunt, securitize mname parameter
 app.get('/tasks/create/model/:mname', function (req, res) {
     shell.exec('grunt create:model:'+req.params.mname, function(code, output) {
@@ -435,3 +435,35 @@ app.get('/tasks/create/model/:mname', function (req, res) {
 });
 */
 
+// ## 6. User Services
+app.get('/service/logaction/:name/:tag', function (req, res) {
+    var resp = {};
+    var action = {};
+    action.name = req.params.name || 'click';
+    action.tag = req.params.tag || 'click';
+    User.findOne({}, function(err, user){
+        if(err) {
+            resp = {
+                'status' : 'error',
+                'cause'  : err 
+            };
+            res.json(resp);
+        } else {
+            user.logAction(action, function(err, doc){
+                if(err) {
+                    resp = {
+                        'status' : 'error',
+                        'cause'  : err
+                    };
+                    res.json(resp);
+                } else {
+                    resp = {
+                        status: 'ok',
+                        obj: doc
+                    };
+                    res.json(resp);
+                }
+            });
+        }
+    });
+});

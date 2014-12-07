@@ -1098,14 +1098,14 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/tasks/test'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    shell.exec(<span class="hljs-string">'./node_modules/mocha/bin/mocha --reporter doc'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(code, output)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Exit code:'</span>, code);
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Program output:'</span>, output);
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*
+app.get('/tasks/test', function (req, res) {
+    shell.exec('./node_modules/mocha/bin/mocha --reporter doc', function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
         res.end(output);
     });
 });
-<span class="hljs-comment">/*
 </span></pre></div></div>
             
         </li>
@@ -1129,6 +1129,51 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
     });
 });
 */</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <h2 id="6-user-services">6. User Services</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/service/logaction/:name/:tag'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    <span class="hljs-keyword">var</span> resp = {};
+    <span class="hljs-keyword">var</span> action = {};
+    action.name = req.params.name || <span class="hljs-string">'click'</span>;
+    action.tag = req.params.tag || <span class="hljs-string">'click'</span>;
+    User.findOne({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span></span>{
+        <span class="hljs-keyword">if</span>(err) {
+            resp = {
+                <span class="hljs-string">'status'</span> : <span class="hljs-string">'error'</span>,
+                <span class="hljs-string">'cause'</span>  : err 
+            };
+            res.json(resp);
+        } <span class="hljs-keyword">else</span> {
+            user.logAction(action, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, doc)</span></span>{
+                <span class="hljs-keyword">if</span>(err) {
+                    resp = {
+                        <span class="hljs-string">'status'</span> : <span class="hljs-string">'error'</span>,
+                        <span class="hljs-string">'cause'</span>  : err
+                    };
+                    res.json(resp);
+                } <span class="hljs-keyword">else</span> {
+                    resp = {
+                        status: <span class="hljs-string">'ok'</span>,
+                        obj: doc
+                    };
+                    res.json(resp);
+                }
+            });
+        }
+    });
+});</pre></div></div>
             
         </li>
         

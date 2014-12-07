@@ -6,7 +6,6 @@
 //  
 var mongoose = require('mongoose'), 
     Reward = require('./reward.js'),
-    User   = require('./user.js'),
     Schema = mongoose.Schema;
 
 var logrewardSchema = new Schema({

@@ -278,7 +278,7 @@
 <span class="hljs-keyword">var</span> ruleSchema = <span class="hljs-keyword">new</span> Schema({
     name        : <span class="hljs-built_in">String</span>,
     desc        : <span class="hljs-built_in">String</span>,
-    challengeId : <span class="hljs-built_in">Number</span>,
+    challengeId : { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'Challenge'</span> },
     actionId    : { type : Schema.Types.ObjectId, ref : <span class="hljs-string">'Action'</span> },
     times       : { type : <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">1</span> },
     condition   : { type : <span class="hljs-built_in">String</span>, enum : enumConditions, <span class="hljs-keyword">default</span>: <span class="hljs-string">'='</span> },
