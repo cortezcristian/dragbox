@@ -25,6 +25,7 @@ var app = module.parent.exports.app,
   LogAction  = require('../models/logaction.js'),
   LogReward  = require('../models/logreward.js'),
   LogChallenge  = require('../models/logchallenge.js'),
+  User  = require('../models/user.js'),
   /* models:end */
   // ### Authorizers
   // Mantain certains part from the application secure
@@ -54,7 +55,9 @@ var app = module.parent.exports.app,
   anyandgo.models['logaction']  = LogAction;
   anyandgo.models['logreward']  = LogReward;
   anyandgo.models['logchallenge']  = LogChallenge;
+  anyandgo.models['user']  = User;
   /* models:registration:end */
+
 
 
 
@@ -300,7 +303,25 @@ restify.serve(app, LogChallenge, {
     console.log("post process");
   }
 });
+
+// GET /api/v1/users
+restify.serve(app, User, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
 /* rest:public:end */
+
 
 
 
