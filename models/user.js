@@ -13,6 +13,7 @@ var userSchema = new Schema({
     email         : String, 
     password      : String, 
     points        : { type: Number, default: 0 }, 
+    unverified    : { type: Boolean, default: true }, 
 	created       : Date         
 });
 

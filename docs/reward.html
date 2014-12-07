@@ -271,12 +271,13 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>), 
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    enumRewardTypes = [<span class="hljs-string">'points'</span>, <span class="hljs-string">'medal'</span>];
 
 <span class="hljs-keyword">var</span> rewardSchema = <span class="hljs-keyword">new</span> Schema({
     name          : <span class="hljs-built_in">String</span>, 
-    type          : <span class="hljs-built_in">String</span>, 
-    points        : { type: <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">0</span>}, 
+    rType         : { type: <span class="hljs-built_in">String</span>, enum: enumRewardTypes, <span class="hljs-keyword">default</span>: <span class="hljs-string">'points'</span> },
+    amount        : { type: <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">0</span>}, 
 	created       : <span class="hljs-built_in">Date</span>         
 });</pre></div></div>
             
