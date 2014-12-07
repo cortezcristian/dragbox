@@ -197,17 +197,25 @@ var loadNotificationTemplates = function(cb) {
 
 var loadChallenges = function(cb) {
     var chs = [ 
-        { name: "ch1", desc: "Visit terms and conditions" } 
-        , { name: "ch2", desc: "Scroll down the page" } 
-        , { name: "ch3", desc: "View terms with video" } 
-        , { name: "ch4", desc: "Answer Quiz" } 
+        { rewardname: "reward1", nt: "nt1", obj: { name: "ch1", desc: "Visit terms and conditions" } }
+        , { rewardname: "reward2", nt: "nt2", obj: { name: "ch2", desc: "Scroll down the page" } } 
+        , { rewardname: "reward3", nt: "nt3", obj: { name: "ch3", desc: "View terms with video" } }
+        , { rewardname: "reward4", nt: "nt4", obj: { name: "ch4", desc: "Answer Quiz" } }
         ];
 
     async.mapSeries(chs, function(op, callback){
-        var ch1 = new Challenge(op);
+        var ch1 = new Challenge(op.obj);
         ch1.save(function(err, doc){
-            console.log("Challenge added...", doc.name, err);
-            callback(err, op);
+          Reward.findOne({name: op.rewardname}, function(err, reward1){
+            NotificationTemplate.findOne({name: op.nt }, function(err, nt1){
+              doc.idReward = reward1._id;
+              doc.idNotificationTemplate = nt1._id;
+              doc.save(function(err, doc){
+                console.log("Challenge added...", doc.name, err);
+                callback(err, op);
+              });
+            });
+          });
         });
     }, function(err, res){
         //console.log(">>>", err, res);    
