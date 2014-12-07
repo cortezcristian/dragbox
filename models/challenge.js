@@ -5,6 +5,7 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose             = require('mongoose'),
+    async                = require('async'),
     Rule                 = require('./rule.js'),
     Reward               = require('./reward.js'),
     NotificationTemplate = require('./notificationtemplate.js'),
@@ -37,10 +38,10 @@ challengeSchema.pre("save", function(next) {
 //     var challenge = new Challenge({name:"ch1"});
 //     challenge.addRule(rule, function(err, ch1){});
 //
-// | Param     | Type     | Description                                                 |
-// | :----     | :----    | :----                                                       |
-// | challenge | Rule     | Rule Object                                                 |
-// | cb        | function | Callback function that'll return error and Challenge object |
+// | Param | Type     | Description                                                 |
+// | :---- | :----    | :----                                                       |
+// | rule  | Rule     | Rule Object                                                 |
+// | cb    | function | Callback function that'll return error and Challenge object |
 //
 //
 challengeSchema.method("addRule", function(obj, cb) {
@@ -69,6 +70,56 @@ challengeSchema.method("addRule", function(obj, cb) {
                 cb(errch1, ch1);
             });
         });
+    }
+});
+
+// ### Method: checkCompleted
+//
+// Usage:
+//
+//     var challenge = new Challenge({name:"ch1"});
+//     challenge.checkComplted(userId, function(err, completed){});
+//
+// | Param  | Type     | Description                                                         |
+// | :----  | :----    | :----                                                               |
+// | userId | ObjectId | UserId necessary to filter LogAction                                |
+// | cb     | function | Callback function that'll return error and completed boolean object |
+//
+//
+challengeSchema.method("checkCompleted", function(userId, cb) {
+    var ch1 = this;
+    var completed = true;
+
+    if (ch1.rules && ch1.rules.lenght >0 ) {
+        async.mapSeries(ch1.rules, function(ruleId, callback) {
+            Rules.findOne({id: ruleId}, function(err, r1){
+               LogAction.find({ idUser: userId, idActionFired: r1.actionId, tag: r1.tag }, function(err, logsA){
+                   if(logsA) {
+                       switch(rule.condition){
+                         case '>=':
+                            completed = (logsA.length >= rules.times)? true : false;
+                         break;
+                         case '<=':
+                            completed = (logsA.length >= rules.times)? true : false;
+                         break;
+                         case '=':
+                            completed = (logsA.length == rules.times)? true : false;
+                         break;
+                         default:
+                         break;
+                       }
+                       cb(null, completed);
+                   } else {
+                    completed = false;
+                    cb(new Error('Action not found for this user in the ActionLog'), completed);    
+                   }
+               });
+            });
+        }, function(err, result){
+        });
+    } else {
+        completed = false;
+        cb(new Error('Challenge provided has no rules'), completed);    
     }
 });
 

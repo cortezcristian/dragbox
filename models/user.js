@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 var LogAction = require('./logaction.js');
 var Action = require('./action.js');
 var Rule = require('./rule.js');
+var Challenge = require('./challenge.js');
 
 var userSchema = new Schema({
     name          : String, 
@@ -59,7 +60,25 @@ userSchema.method("logAction", function(param, cb) {
                                     challengesRelated.push(v.challengeId);
                                 }
                             });
-                            cb(err, challengesRelated);    
+
+                            console.log("-->", challengesRelated);
+                            // Change it and do it for all challenges
+                            Challenge.findOne({ _id: challengesRelated[0] }, function(err, ch){
+                                console.log("-->", err, ch);
+                                ch.checkCompleted(user.id, function(err, completed){
+                                    console.log("c->", completed);
+                                    cb(err, completed);            
+                                });
+                                
+                            });
+                            // Iterate challengesRelated
+                            //   check each one if it is complete
+                            //     Iterate all rules from challenge (review LogActions)
+                            //   check if completed challenge
+                            //     amount of times completed
+                            //   log, reward, notify
+
+                            //cb(err, challengesRelated);    
                         });
                     });
                 } else {
