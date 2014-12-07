@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
 
 var notificationtemplateSchema = new Schema({
     name    : String,
+    desc    : String,
     title   : String,
     message : String,
     icon    : String,

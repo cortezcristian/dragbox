@@ -150,6 +150,40 @@ var loadRewards = function(cb) {
 /**
  *
 
+## NotificationTemplates
+
+| Name | Desc             |
+| :--- | :---             |
+| nt1  | Earn +10 points  |
+| nt2  | Earn +50 points  |
+| nt3  | Earn +100 points |
+| nt4  | Earn +150 points |
+
+ */
+var loadNotificationTemplates = function(cb) {
+    var nts = [ 
+        { name: "nt1", desc: "Earn +10 points", title: 'Congrats!!', message: 'You\'ve earned +10 points', icon: 'fa fa-star fa-3' } 
+        , { name: "nt2", desc: "Earn +50 points", title: 'Congrats!!', message: 'You\'ve earned +50 points', icon: 'fa fa-star fa-3' } 
+        , { name: "nt3", desc: "Earn +100 points", title: 'Congrats!!', message: 'You\'ve earned +100 points', icon: 'fa fa-star fa-3' } 
+        , { name: "nt4", desc: "Earn +150 points", title: 'Congrats!!', message: 'You\'ve earned +150 points', icon: 'fa fa-star fa-3' } 
+        ];
+
+    async.mapSeries(nts, function(op, callback){
+        var nt1 = new NotificationTemplate(op);
+        nt1.save(function(err, doc){
+            console.log("NotificationTemplate added...", doc.name, err);
+            callback(err, op);
+        });
+    }, function(err, res){
+        //console.log(">>>", err, res);    
+        cb(null, 'NotificationTemplates Loaded')
+    });
+        
+};
+
+/**
+ *
+
 ## Challenges
 
 | Name | Desc                       |
@@ -182,4 +216,4 @@ var loadChallenges = function(cb) {
         
 };
 
-async.series([clearCollections, loadActions, loadRules, loadRewards, loadChallenges]);
+async.series([clearCollections, loadActions, loadRules, loadRewards, loadNotificationTemplates, loadChallenges]);
