@@ -12,14 +12,14 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a(href='/') Home
+          a(href='/') #{__("Home")}
         // public:page:menu:start
         li
-          a(href='/contact') Contact
+          a(href='/contact') #{__("Contact")}
         li
-          a(href='/admin') Admin
+          a(href='/admin') #{__("Admin")}
         li
-          a(href='/terms-and-conditions') terms-and-conditions
+          a(href='/terms-and-conditions') #{__("terms-and-conditions")}
         // public:page:menu:end
       ul.nav.navbar-nav.navbar-right
         li.dropdown
@@ -28,15 +28,15 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
           ul.dropdown-menu.dropdown-menu-bubble-right.mond-lang-change(role='menu')
             //public:translation:menu:start
             li
-              a(href='#', langsupport="en-us") en-us
+              a(href='#', langsupport="en-us") #{__("en-us")}
             li
-              a(href='#', langsupport="es-ar") es-ar
+              a(href='#', langsupport="es-ar") #{__("es-ar")}
             //public:translation:menu:end
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span
               i.fa.fa-users(style='padding-right:10px') 
-              | Login with...
+              | #{__("Login with...")}
             span.caret
           ul.dropdown-menu.dropdown-menu-bubble-right(role='menu')
             li
