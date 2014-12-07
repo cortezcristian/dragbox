@@ -38,6 +38,44 @@ var clearCollections = function(cb) {
 /**
  *
 
+## Actions
+
+| Name       | Desc                  |
+| :---       | :---                  |
+| visit      | Visit page            |
+| scroll     | Scroll down the page  |
+| watchvideo | View terms with video |
+| answer     | Answer Quiz           |
+| answerok   | Answer Quiz correctly |
+| answerfail | Answer Quiz wrongly   |
+
+ */
+var loadActions = function(cb) {
+    var actions = [ 
+        { name: "visit", desc: "Visit page" } 
+        , { name: "scroll", desc: "Scroll down the page" } 
+        , { name: "watchvideo", desc: "View terms with video" } 
+        , { name: "answer", desc: "Answer Quiz" } 
+        , { name: "answerok", desc: "Answer Quiz correctly" } 
+        , { name: "answerfail", desc: "Answer Quiz wrongly" } 
+        ];
+
+    async.mapSeries(actions, function(op, callback){
+        var a1 = new Action(op);
+        a1.save(function(err, doc){
+            console.log("Action added...", doc.name, err);
+            callback(err, op);
+        });
+    }, function(err, res){
+        //console.log(">>>", err, res);    
+        cb(null, 'Actions Loaded')
+    });
+        
+};
+
+/**
+ *
+
 ## Challenges
 
 | Name | Desc                       |
@@ -70,4 +108,4 @@ var loadChallenges = function(cb) {
         
 };
 
-async.series([clearCollections, loadChallenges]);
+async.series([clearCollections, loadActions, loadChallenges]);
