@@ -36,6 +36,7 @@ userSchema.method('authenticate', function(password) {
 
 userSchema.method("logAction", function(param, cb) {
     var user = this;
+    var challengesRelated = [];
     if(typeof param.name !== "undefined" && typeof param.tag !== "undefined") {
         Action.findOne({name: param.name}, function(err, action){
             if(err) {
@@ -52,7 +53,13 @@ userSchema.method("logAction", function(param, cb) {
                         console.log(err, log1);
                         // Get all the rules
                         Rule.find({actionId: log1.idActionFired }, function(err, rules){
-                            cb(err, rules);    
+                            rules.forEach(function(v, i){
+                                // Fill list of challenges related
+                                if(challengesRelated.indexOf(v.challengeId) === -1){
+                                    challengesRelated.push(v.challengeId);
+                                }
+                            });
+                            cb(err, challengesRelated);    
                         });
                     });
                 } else {

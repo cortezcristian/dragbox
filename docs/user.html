@@ -273,12 +273,16 @@
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>), 
     Schema = mongoose.Schema,
     bcrypt = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bcrypt-nodejs'</span>);
+<span class="hljs-keyword">var</span> LogAction = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./logaction.js'</span>);
+<span class="hljs-keyword">var</span> Action = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./action.js'</span>);
+<span class="hljs-keyword">var</span> Rule = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./rule.js'</span>);
 
 <span class="hljs-keyword">var</span> userSchema = <span class="hljs-keyword">new</span> Schema({
     name          : <span class="hljs-built_in">String</span>, 
     email         : <span class="hljs-built_in">String</span>, 
     password      : <span class="hljs-built_in">String</span>, 
     points        : { type: <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">0</span> }, 
+    unverified    : { type: <span class="hljs-built_in">Boolean</span>, <span class="hljs-keyword">default</span>: <span class="hljs-literal">true</span> }, 
 	created       : <span class="hljs-built_in">Date</span>         
 });</pre></div></div>
             
@@ -306,7 +310,25 @@
 
 userSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(password)</span> </span>{
     <span class="hljs-keyword">return</span> bcrypt.compareSync(password, <span class="hljs-keyword">this</span>.password);
-});</pre></div></div>
+});
+
+userSchema.method(<span class="hljs-string">"logAction"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(param, cb)</span> </span>{
+    <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">var</span> challengesRelated = [];
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> param.name !== <span class="hljs-string">"undefined"</span> &amp;&amp; <span class="hljs-keyword">typeof</span> param.tag !== <span class="hljs-string">"undefined"</span>) {
+        Action.findOne({name: param.name}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, action)</span></span>{
+            <span class="hljs-keyword">if</span>(err) {
+                cb(err, <span class="hljs-literal">null</span>)
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> (action) {
+                    <span class="hljs-keyword">var</span> log = <span class="hljs-keyword">new</span> LogAction({
+                        name          : param.name,
+                        idUser        : user.id,
+                        idActionFired : action.id,
+                        tag           : param.tag
+                    });
+                    log.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, log1)</span></span>{
+                        <span class="hljs-built_in">console</span>.log(err, log1);</pre></div></div>
             
         </li>
         
@@ -316,6 +338,52 @@ userSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Get all the rules</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        Rule.find({actionId: log1.idActionFired }, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, rules)</span></span>{
+                            rules.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(v, i)</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Fill list of challenges related</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                                <span class="hljs-keyword">if</span>(challengesRelated.indexOf(v.challengeId) === -<span class="hljs-number">1</span>){
+                                    challengesRelated.push(v.challengeId);
+                                }
+                            });
+                            cb(err, challengesRelated);    
+                        });
+                    });
+                } <span class="hljs-keyword">else</span> {
+                    cb(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Action not found"</span>), <span class="hljs-literal">null</span>);
+                }
+            }
+        });
+    } <span class="hljs-keyword">else</span> {
+        cb(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Wrong parameters supplied"</span>), <span class="hljs-literal">null</span>)
+    }
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <h3 id="method-">Method:</h3>
 
@@ -329,11 +397,11 @@ userSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="
         </li>
         
         
-        <li id="section-6">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <h3 id="static-">Static:</h3>
 
@@ -349,11 +417,11 @@ userSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="
         </li>
         
         
-        <li id="section-7">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>Export module</p>
 

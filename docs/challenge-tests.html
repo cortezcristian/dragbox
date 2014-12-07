@@ -300,7 +300,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Challenge, challenge;</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Challenge, challenge;
+<span class="hljs-keyword">var</span> Rule, rule;</pre></div></div>
             
         </li>
         
@@ -332,6 +333,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>        Challenge = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/challenge.js"</span>);
+        Rule = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/rule.js"</span>);
     });
 
     describe(<span class="hljs-string">'Challenge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
@@ -352,6 +354,11 @@
             <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a challenge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
             challenge = <span class="hljs-keyword">new</span> Challenge({ name: <span class="hljs-string">'challenge'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
             challenge.save(done);
+        });
+
+        it(<span class="hljs-string">'add a rule to a challenge'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            rule = <span class="hljs-keyword">new</span> Rule({ name: <span class="hljs-string">'rule'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
+            challenge.addRule(rule, done);
         });
 
     });
