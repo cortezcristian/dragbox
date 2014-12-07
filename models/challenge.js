@@ -18,6 +18,7 @@ var challengeSchema = new Schema({
     idNotificationTemplate : { type : Schema.Types.ObjectId, ref : 'NotificationTemplate' },
     limitWins              : { type : Number, default : 0 },
     repeat                 : { type : Boolean, default : false },
+    live                   : { type : Boolean, default : true },
 	created                : Date
 });
 
