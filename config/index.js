@@ -10,6 +10,9 @@ switch (process.env.NODE_ENV) {
     case 'travisci':
         config = require('./config-travisci.json');
     break;
+    case 'koding':
+        config = require('./config-koding.json');
+    break;
     default:
         config = require('./config-local.json');
         process.env.NODE_ENV = 'development';
