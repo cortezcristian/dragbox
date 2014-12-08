@@ -94,6 +94,11 @@ app.get('/admin', function (req, res) {
 app.get('/terms-and-conditions', function (req, res) {
     res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'taco', user: req.user });
 });
+
+// ### taco-video Page
+app.get('/taco-video', function (req, res) {
+    res.render('taco-video', { title: 'taco-video', section: 'taco-video', user: req.user });
+});
 /* page:public:end */
 
 // ## 2. Admin Routes
