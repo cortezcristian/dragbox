@@ -11,6 +11,10 @@ Funky Fresh Boyz git repo for Koding's Global Virtual Hackathon. No one reads th
 
 ## How to see it working on koding.com
 
+You can go to:
+- [http://cortezcristian.koding.io/](http://cortezcristian.koding.io/)
+- [http://uckk835a6038.cortezcristian.koding.io/](http://uckk835a6038.cortezcristian.koding.io/)
+
 I just left a file called `/home/cortezcristian/autostart.sh`
 
 ```bash
