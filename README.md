@@ -23,19 +23,19 @@ We created a fake company called Dragbox, that sells cloud storage plans. Dragbo
 
 Use cases we develop:
 
-1. Visit at least one Terms and Conditions page:
+##### 1. Visit at least one Terms and Conditions page:
 
 1.1 Go to [http://cortezcristian.koding.io/terms-and-conditions](http://cortezcristian.koding.io/terms-and-conditions)
 
 1.2 A message will appear, you've won +10 points
 
-2. Scroll down to the bottom of the Terms and Conditions page
+##### 2. Scroll down to the bottom of the Terms and Conditions page
 
 2.1 Scroll to the bottom on [http://cortezcristian.koding.io/terms-and-conditions](http://cortezcristian.koding.io/terms-and-conditions) 
 
 2.2 We detect this event and give tou another +50 points
 
-3. Putting a video with a former employee, that reads and explain carefully the Agreement while page scrolls automatically
+##### 3. Putting a video with a former employee, that reads and explain carefully the Agreement while page scrolls automatically and can remark the main benefits of the service
 
 3.1 We detect the video processing and give you +100 points
 
