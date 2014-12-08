@@ -34,6 +34,8 @@ First we go into a process of detection, and when user hits the check on accepti
 
 1.2 A message will appear, you've won +10 points
 
+![DragBox Earn](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/drag-box-earn-60.png)
+
 ##### 2. Scroll down to the bottom of the Terms and Conditions page
 
 2.1 Scroll to the bottom on [http://cortezcristian.koding.io/terms-and-conditions](http://cortezcristian.koding.io/terms-and-conditions) 
