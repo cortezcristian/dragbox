@@ -9,6 +9,26 @@ Funky Fresh Boyz git repo for Koding's Global Virtual Hackathon. No one reads th
 - [About the competition](https://koding.com/Hackathon)
 - [About the team](https://github.com/koding/global.hackathon/blob/master/Teams/FunkyFreshBoyz/ABOUT.md)
 
+## Our Solution
+
+Reading terms and conditions can be tedious. But we look at the boring acitivity like an oportunity to:
+
+- Engage visitors. Using gamification, we encourage the reading activity by giving points that later on you can change for gift services.
+- Branding. We give the change to add a video next to the TOS so one of your formers employees reads and interpret for them. We belive lke the case of the 404 pages, that now are part of the branding.
+- Once you have them as confirmed accounts, you can still keep giving rewards for actions such as helping other users to understand submitted questions on the subject (like stackoverflow does)
+
+Use cases we develop:
+
+1. Visit at least one Terms and Conditions page:
+   1.1 Go to [http://cortezcristian.koding.io/terms-and-conditions](http://cortezcristian.koding.io/terms-and-conditions)
+   1.2 A message will appear, you've won +10 points
+2. Scroll down to the bottom of the Terms and Conditions page
+   2.1 Scroll to the bottom on [http://cortezcristian.koding.io/terms-and-conditions](http://cortezcristian.koding.io/terms-and-conditions) 
+   2.2 We detect this event and give tou another +50 points
+
+With all the point's you have made you can then later on change the points for real prices
+- 1GB free for 1 year, cost you 60 points
+
 ## How to see it working on koding.com
 
 You can go to:
