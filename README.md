@@ -46,6 +46,8 @@ First we go into a process of detection, and when user hits the check on accepti
 
 3.1 We detect the video processing and give you +100 points
 
+![DragBox Video](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/drag-box-video.png)
+
 With all the point's you have made you can then later on change the points for real prices
 - 1GB free for 1 year, cost you 60 points
 
