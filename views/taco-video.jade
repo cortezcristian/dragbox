@@ -19,7 +19,8 @@ block content
         
             p **IMPORTANT: PLEASE READ THIS LICENSE CAREFULLY BEFORE USING THIS SOFTWARE.**
         
-            h3 1. LICENSE
+            h3#s1t 1. LICENSE
+            a#s1(href="#s1t") link
         
             p By receiving, opening the file package, and/or using Dragbox 1.0("Software") containing this software, you agree that this End User User License Agreement(EULA) is a legally binding and valid contract and agree to be bound by it. You agree to abide by the intellectual property laws and all of the terms and conditions of this Agreement.
         
@@ -29,11 +30,13 @@ block content
         
             p If you do not agree to be bound by this agreement, remove Dragbox 1.0 from your computer now and, if applicable, promptly return to Funky Fresh Boyz Unlimited by mail any copies of Dragbox 1.0 and related documentation and packaging in your possession.
         
-            h3 2. DISTRIBUTION
+            h3#s2t 2. DISTRIBUTION
+            a#s2(href="#s2t") link
         
             p Dragbox 1.0 and the license herein granted shall not be copied, shared, distributed, re-sold, offered for re-sale, transferred or sub-licensed in whole or in part except that you may make one copy for archive purposes only. For information about redistribution of Dragbox 1.0 contact Funky Fresh Boyz Unlimited.
         
-            h3 3. USER AGREEMENT
+            h3#s3t 3. USER AGREEMENT
+            a#s3(href="#s3t") link
         
             h4 3.1 Use
         
@@ -74,12 +77,14 @@ block content
             h4 3.7 Termination
         
             p Any failure to comply with the terms and conditions of this Agreement will result in automatic and immediate termination of this license. Upon termination of this license granted herein for any reason, you agree to immediately cease use of Dragbox 1.0 and destroy all copies of Dragbox 1.0 supplied under this Agreement. The financial obligations incurred by you shall survive the expiration or termination of this license.
-        
+            #s4t 
             h3 4. DISCLAIMER OF WARRANTY
+            a#s4(href="#s4t") link
         
             p THIS SOFTWARE AND THE ACCOMPANYING FILES ARE SOLD "AS IS" AND WITHOUT WARRANTIES AS TO PERFORMANCE OR MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR IMPLIED. THIS DISCLAIMER CONCERNS ALL FILES GENERATED AND EDITED BY Dragbox 1.0 AS WELL.
         
             h3 5. CONSENT OF USE OF DATA
+            a#s5(href="#")
         
             p You agree that Funky Fresh Boyz Unlimited may collect and use information gathered in any manner as part of the product support services provided to you, if any, related to Dragbox 1.0.Funky Fresh Boyz Unlimited may also use this information to provide notices to you which may be of use or interest to you.
   #video-con
@@ -105,36 +110,27 @@ block scripts
         //Video index is the main key
         '9TMapSGx8mg': {
             'actions': [{
-                'time': 27,
-                'name' : 'eval',
-                'params': [
-                    '$("#tedior").click()'
-                ]
-              },{
                 'time': 50,
                 'name' : 'eval',
-                'params': [
-                    '$(".send").eq(0).click()'
-                ]
+                'params': '$.scrollTo("#s1t")'
               },{
-                'time': 68,
-                'name' : 'wLines',
-                'params': {
-                    "2": "error"
-                }
-              },{
-                'time': 79,
+                'time': 85,
                 'name' : 'eval',
-                'params': [
-                    '$(".send").eq(0).click()',
-                    'console.log("exec task 9")'
-                ]
+                'params': '$.scrollTo("#s2t")'
               },{
-                'time': 86,
+              },{
+                'time': 124,
                 'name' : 'eval',
-                'params': [
-                    '$("#tedior").click()'
-                ]
+                'params': '$.scrollTo("#s3t")'
+              },{
+              },{
+                'time': 160,
+                'name' : 'eval',
+                'params': '$.scrollTo("#s4t")'
+              },{
+                'time': 175,
+                'name' : 'eval',
+                'params': '$.scrollTo("#s5t")'
             }]
         }
       };
