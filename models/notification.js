@@ -8,12 +8,14 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var notificationSchema = new Schema({
-    name     : String,
-    title    : String,
-    message  : String,
-    icon     : String,
-    idUserTo : { type  : Schema.Types.ObjectId, ref : 'User' },
-	created  : Date
+    name       : String,
+    title      : String,
+    message    : String,
+    icon       : String,
+    idUserTo   : { type  : Schema.Types.ObjectId, ref : 'User' },
+    readed     : { type  : Boolean, default           : false },
+    readedTime : Date,
+	created    : Date
 });
 
 // ### Hooks 

@@ -467,3 +467,12 @@ app.get('/service/logaction/:name/:tag', function (req, res) {
         }
     });
 });
+
+app.get('/service/getpendingnotifications', function (req, res) {
+    User.findOne({}, function(err, user){
+        Notification.find({idUserTo:user.id, readed: false}, function(err, notifs){
+            var data = { status: 'ok', messages: notifs}
+            res.json(data);
+        });
+    });
+});
