@@ -163,7 +163,7 @@ challengeSchema.method("checkAvailability", function(userId, cb) {
 
     LogChallenge.find({ idUser: userId, idChallenge: ch1.id}, function(err, logC){
        completedTimes = (logC) ? logC.length : 0;
-       if (completedTimes == 0) {
+       if (completedTimes === 0) {
           available = true;
        } else if (completedTimes > 0) {
          if(ch1.repeat) {
