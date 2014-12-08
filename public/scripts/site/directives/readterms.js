@@ -1,6 +1,11 @@
 'use strict';
 
 $(document).ready(function(){
+
+    $('#tyc').change(function(e){
+        $('#offer').removeClass('hide');
+    });
+
     $.noty.defaults = {
         layout: 'bottomRight',
         theme: 'relax', // or 'relax'
