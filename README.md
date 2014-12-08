@@ -28,17 +28,20 @@ I just left a file called `/home/cortezcristian/autostart.sh`
 ```bash
 #!/bin/bash
 export NODE_ENV=koding
-#sudo apache2ctl stop
+sudo export NODE_ENV=koding
+sudo apache2ctl stop
+sudo service apache2 stop
 sudo service mongodb start
 cd /home/cortezcristian/Applications/dragbox
 git pull origin master
-sudo npm install
+npm install
+bower install
 sudo npm start
 ```
 
 You can simply run:
 ```bash
-$ sudo sh /home/cortezcristian/autostart.sh
+$ sh /home/cortezcristian/autostart.sh
 ```
 
 Note: Known issue, VM is running out of space recently, check `df -h`if disk is full MongoDB won't start and application wont load. I've uninstalled apache*, php* and a lot of extra stuff to prevent this.
