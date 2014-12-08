@@ -17,11 +17,16 @@ Reading terms and conditions can be tedious. But we look at the boring acitivity
 - Branding. We give the change to add a video next to the TOS so one of your formers employees reads and interpret for them. We belive lke the case of the 404 pages, that now are part of the branding.
 - Once you have them as confirmed accounts, you can still keep giving rewards for actions such as helping other users to understand submitted questions on the subject (like stackoverflow does)
 
-Case study
+### Case study
 
 We created a fake company called Dragbox, that sells cloud storage plans. Dragbox also have probles to engage, and increase loyalty, they also want to develop their global brand and change clients vision to be perceived as serious, profesional and 100% reliable.
 
-Use cases we develop:
+### Use cases we develop:
+
+First we go into a process of detection, and when user hits the check on accepting the terms, we do offer them to read them:
+
+![DragBox](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/drag-box-detection.png)
+
 
 ##### 1. Visit at least one Terms and Conditions page:
 
