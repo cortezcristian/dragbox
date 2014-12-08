@@ -28,9 +28,10 @@ I just left a file called `/home/cortezcristian/autostart.sh`
 ```bash
 #!/bin/bash
 export NODE_ENV=koding
-sudo apache2ctl stop
+#sudo apache2ctl stop
 sudo service mongodb start
 cd /home/cortezcristian/Applications/dragbox
+git pull origin master
 sudo npm install
 sudo npm start
 ```
