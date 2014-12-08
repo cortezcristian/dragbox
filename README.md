@@ -53,6 +53,9 @@ See [http://cortezcristian.koding.io/taco-video](http://cortezcristian.koding.io
 With all the point's you have made you can then later on change the points for real prices
 - 1GB free for 1 year, cost you 60 points
 
+### Gamification plan
+![The hard work](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/dragbox-erd.png)
+
 ## How to see it working on koding.com
 
 You can go to:
