@@ -94,6 +94,11 @@ app.get('/admin', function (req, res) {
 app.get('/terms-and-conditions', function (req, res) {
     res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'taco', user: req.user });
 });
+
+// ### Reward Page
+app.get('/reward', function (req, res) {
+    res.render('reward', { title: 'reward', section: 'reward', user: req.user });
+});
 /* page:public:end */
 
 // ## 2. Admin Routes
