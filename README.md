@@ -44,6 +44,8 @@ First we go into a process of detection, and when user hits the check on accepti
 
 ##### 3. Putting a video with a former employee, that reads and explain carefully the Agreement while page scrolls automatically and can remark the main benefits of the service
 
+See [http://cortezcristian.koding.io/taco-video](http://cortezcristian.koding.io/taco-video)
+
 3.1 We detect the video processing and give you +100 points
 
 ![DragBox Video](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/drag-box-video.png)
