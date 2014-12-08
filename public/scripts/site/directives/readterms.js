@@ -6,6 +6,11 @@ $(document).ready(function(){
         $('#offer').removeClass('hide');
     });
 
+    $('#collapseoffer').click(function(e){
+        e.preventDefault();
+        $('#offer').addClass('hide');
+    });
+
     $.noty.defaults = {
         layout: 'bottomRight',
         theme: 'relax', // or 'relax'
