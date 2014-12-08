@@ -126,7 +126,7 @@ userSchema.method("achievementLogRewardAndNotify", function(challId, cb) {
                     var notification = new Notification({
                         idUserTo: user.id,
                         title: nt.title,
-                        message: nt.message,
+                        message: nt.message+'. Because you achieved challenge: '+ch1.desc,
                         icon: nt.icon
                     });
                     notification.save(cb);

@@ -92,7 +92,7 @@ app.get('/admin', function (req, res) {
 
 // ### terms-and-conditions Page
 app.get('/terms-and-conditions', function (req, res) {
-    res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'terms-and-conditions', user: req.user });
+    res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'taco', user: req.user });
 });
 /* page:public:end */
 
@@ -465,5 +465,14 @@ app.get('/service/logaction/:name/:tag', function (req, res) {
                 }
             });
         }
+    });
+});
+
+app.get('/service/getpendingnotifications', function (req, res) {
+    User.findOne({}, function(err, user){
+        Notification.find({idUserTo:user.id, readed: false}, function(err, notifs){
+            var data = { status: 'ok', messages: notifs}
+            res.json(data);
+        });
     });
 });
