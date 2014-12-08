@@ -35,7 +35,9 @@ git pull origin master
 npm install
 #git config --global url."https://".insteadOf git://
 bower install
-sudo NODE_ENV=koding npm start
+#sudo NODE_ENV=koding npm start
+sudo forever stopall
+sudo NODE_ENV=koding forever start /home/cortezcristian/Applications/dragbox/bin/www 
 
 ```
 
@@ -45,6 +47,14 @@ $ sh /home/cortezcristian/autostart.sh
 ```
 
 Note: Known issue, VM is running out of space recently, check `df -h`if disk is full MongoDB won't start and application wont load. I've uninstalled apache*, php* and a lot of extra stuff to prevent this.
+
+After that you can manage the application with [forever](https://github.com/nodejitsu/forever). In example, you can run:
+```bash
+$ sudo forever list
+info:    Forever processes running
+data:        uid  command             script                                            forever pid   id logfile                                uptime      
+data:    [0] QFZY /usr/local/bin/node /home/cortezcristian/Applications/dragbox/bin/www 11654   11656    /home/cortezcristian/.forever/QFZY.log 0:0:0:5.573
+```
 
 ## Quick Setup
 
