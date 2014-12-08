@@ -15,6 +15,13 @@ You can go to:
 - [http://cortezcristian.koding.io/](http://cortezcristian.koding.io/)
 - [http://uckk835a6038.cortezcristian.koding.io/](http://uckk835a6038.cortezcristian.koding.io/)
 
+You, should be able to see this site
+![DragBox](https://raw.githubusercontent.com/cortezcristian/dragbox/master/pics/drag-box-home.png)
+
+If you don't see it, it's because the server is down. Follow the instructions
+
+### Instructions to start the server
+
 I just left a file called `/home/cortezcristian/autostart.sh`
 
 ```bash
