@@ -42,7 +42,7 @@ $(document).ready(function(){
         logAction: function(name, tag, cb){
             $.ajax({
                 type: 'GET',
-                url: gamify.host+'logAction/name/'+name+'/tag/'+tag,
+                url: gamify.host+'logaction/'+name+'/'+tag,
                 //data: {name:name, tag:tag},
                 dataType: "json",
                 success: function(data){
@@ -112,7 +112,7 @@ $(document).ready(function(){
             gamify.getPendingNotifications(function(data){
                 if(data.status == 'ok'){
                     $.each(data.messages, function(i,v){
-                        if($('div[data-notification='+v.idNotifications+']').size()==0){
+                        if($('div[data-notification='+v['_id']+']').size()==0){
                             var text = '<h6><strong>'+v.title+'</strong></h6>';
                             text += '<p><i class="notyicon '+v.icon+'"></i>'+v.message+'</p>';
                             text += '<div class="hide" data-notification="'+v['_id']+'"></div>';
@@ -154,7 +154,25 @@ $(document).ready(function(){
 
 // Execute on ready
 $(document).ready(function(){
+    // Show notifications on page load
     gamify.showPendingNotifications();
+    // Visit page action
+    gamify.logAction('visit', $('#site-page').text()||'unknownsection', function(){
+        gamify.showPendingNotifications();
+    });
+    // Detect if user scroll to the bottom
+    var scrolledDown = false;
+    $(window).scroll(function() {
+       if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+           console.log("near bottom!");
+           if(!scrolledDown){
+              gamify.logAction('scroll', $('#site-page').text()||'unknownsection', function(){
+                scrolledDown = true;
+                gamify.showPendingNotifications();
+              });
+           }
+       }
+    });
 });
 
 /**

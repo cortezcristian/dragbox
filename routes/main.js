@@ -92,7 +92,7 @@ app.get('/admin', function (req, res) {
 
 // ### terms-and-conditions Page
 app.get('/terms-and-conditions', function (req, res) {
-    res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'terms-and-conditions', user: req.user });
+    res.render('terms-and-conditions', { title: 'terms-and-conditions', section: 'taco', user: req.user });
 });
 /* page:public:end */
 
